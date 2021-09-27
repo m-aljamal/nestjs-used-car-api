@@ -1,10 +1,32 @@
+### signup
 POST http://localhost:3000/auth/signup
 content-type: application/json
 
 {
-    "email":"s@m.com",
+    "email":"stttdddddest@m.com",
     "password":"123"
 } 
+
+
+### sigin in user 
+
+POST http://localhost:3000/auth/signin
+content-type: application/json
+
+{
+    "email":"stttdddddest@m.com",
+    "password":"123"
+} 
+
+### get the current user
+
+GET http://localhost:3000/auth/whoami
+
+
+
+### sginout
+
+POST http://localhost:3000/auth/signout
 
 
 ### find user with id
@@ -14,7 +36,7 @@ GET http://localhost:3000/auth/3
 
 ### find add users with the email
 
-GET http://localhost:3000/auth?email=m@m.com
+GET http://localhost:3000/auth?email=stttest@m.com
 
 
 ### delete user with id 
@@ -28,5 +50,5 @@ content-type: application/json
 
 
 {
-    "email":"test@m.com"
+    "email":"tesgggt@m.com"
 }
