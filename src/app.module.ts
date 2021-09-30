@@ -61,6 +61,7 @@ const cookieSession = require('cookie-session');
   ],
 })
 export class AppModule {
+  constructor(private configService: ConfigService) {}
   // called when app listing to trafic
   // here can setup middle ware that run on every request
   configure(consumer: MiddlewareConsumer) {
@@ -68,9 +69,11 @@ export class AppModule {
     consumer
       .apply(
         cookieSession({
-          keys: ['assfdfnjgnlfdgkew'],
+          keys: [this.configService.get('COOKIE_KEY')],
         }),
       )
       .forRoutes('*'); // run on every comming routes   gloable middleware
   }
 }
+
+// www.downloadly.ir
