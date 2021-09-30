@@ -1,10 +1,12 @@
 // import { Exclude } from 'class-transformer';
+import { Report } from '../reports/reports.entity';
 import {
   AfterInsert,
   AfterRemove,
   AfterUpdate,
   Column,
   Entity,
+  OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
 
@@ -19,6 +21,14 @@ export class User {
   @Column()
   // @Exclude() // this is for not returning the user password
   password: string;
+
+  @Column({ default: false })
+  admin: boolean;
+
+  // a relation betwen users and reports
+  // one user can has many reports
+  @OneToMany(() => Report, (report) => report.user)
+  reports: Report[];
 
   @AfterInsert()
   logInser() {
